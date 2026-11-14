@@ -1,1 +1,60 @@
-/* Add your own styles */
+:root{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    color: black;
+    text-align: center;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: navy;
+    color: white;
+    font-size: larger;
+    margin: -8px -8px 10px -8px;
+    padding: 50px;
+}
+
+#country{
+    padding: 12px 300px 10px 5px;
+    background-color: gainsboro;
+    border: none;
+}
+
+#controls > button{
+    padding: 12px;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(111, 197, 232);
+    border: none;
+    border-radius: 10%;
+}
+
+#controls > #city{
+    background-color: rgb(108, 218, 187);
+}
+
+h4{
+    color: rgb(127, 3, 3);
+}
+
+table{
+    margin: 50px 200px;
+    width: 70%;
+    overflow-x: auto;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th,td {
+    padding: 12px 16px;
+}
+
+thead{
+    background-color: rgb(0, 128, 81);
+    color: white;
+}
+
+tbody > tr:nth-child(even){
+    background-color: lightgray;
+}
