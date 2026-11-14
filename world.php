@@ -22,24 +22,39 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php $country = isset($_GET['country']) ? trim($_GET['country']): '';
 $country = filter_var($country, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $found = false;
-
+echo '<table>';
+echo '<thead><tr>
+  <th>Name</th>
+  <th>Continent</th>
+  <th>Independence</th>
+  <th>Head of State</th>
+  <tr></thead>';
 if($country === ''){
-  echo '<ul>';
   foreach($results as $row){
-    echo '<li>' . $row['name'] . ' is ruled by ' . $row['head_of_state'] . '</li>';
+    echo '<tr>
+    <td>' . $row['name'] . '</td>
+    <td>' . $row['continent'] .'</td>
+    <td>' . $row['independence_year'] .'</td>
+    <td>' . $row['head_of_state'] .'</td>
+    </tr>';
   }
-  echo '</ul>';
+  echo '</table>';
 } else {
   $qstmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%'");
   $qresults = $qstmt->fetchAll(PDO::FETCH_ASSOC);
-  echo '<ul>';
   foreach($qresults as $row){
-    echo '<li>' . htmlspecialchars($row['name']) . '</li>';
+    echo '<tr>
+    <td>' . $row['name'] . '</td>
+    <td>' . $row['continent'] .'</td>
+    <td>' . $row['independence_year'] .'</td>
+    <td>' . $row['head_of_state'] .'</td>
+    </tr>';
     $found = true;
   }
-  echo '</ul>';
+  echo '</table>';
 
   if(!$found){
+  ob_end_clean();
   echo '<p>Country not found</p>';
   }
 }
